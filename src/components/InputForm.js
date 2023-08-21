@@ -14,6 +14,7 @@ const FormInput = () => {
     const [productList, setProductList] = useState(getData());
     const [productId, setProductId] = useState('');
     const [productPrice, setProductPrice] = useState();
+    const [productCategory,setProductCategory]=useState();
     const [productName, setProductName] = useState('');
 
     const idHandler = (e) => {
@@ -27,6 +28,9 @@ const FormInput = () => {
     const nameHandler = (e) => {
         setProductName(e.target.value);
     }
+    const categoryHandler = (e) => {
+        setProductCategory(e.target.value);
+    }
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -34,12 +38,13 @@ const FormInput = () => {
             id: productId,
             price: productPrice,
             name: productName,
+            category:productCategory,
             key: productId
         }
         setProductList([...productList, newItem])
         setProductId('');
         setProductName('');
-        setProductPrice(0);
+        setProductPrice('');
     }
     useEffect(() => {
         localStorage.setItem('user', JSON.stringify(productList));
@@ -67,8 +72,17 @@ const FormInput = () => {
                     <label htmlFor="">Product-name :</label>
                     <input type="text" value={productName} onChange={nameHandler} required />
                 </div>
+                <div>
+                    <label htmlFor="">Choose a category :</label>
+                    <select name="" onChange={categoryHandler}>
+                        <option value="Food" selected>Food</option>
+                        <option value="Gadget">Gadget</option>
+                        <option value="Skincare">Skincare</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </div>
                 <div className={classes.button}>
-                    <button type='submit'>Submit</button>
+                    <button type='submit'>Add product</button>
                 </div>
             </form>
             <div>
