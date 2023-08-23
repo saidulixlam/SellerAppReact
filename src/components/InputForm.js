@@ -61,19 +61,19 @@ const FormInput = () => {
         <div >
             <form onSubmit={submitHandler} className={classes['form-input']}>
                 <div>
-                    <label htmlFor="">Product-id :</label>
+                    <label htmlFor=""><h3>Product-ID :</h3></label>
                     <input type="number" value={productId} placeholder='Unique id always' required onChange={idHandler} />
                 </div>
                 <div>
-                    <label htmlFor="">Product-price:</label>
+                    <label htmlFor=""><h3>Selling-Price:</h3></label>
                     <input type="number" value={productPrice} onChange={priceHandler} required />
                 </div>
                 <div>
-                    <label htmlFor="">Product-name :</label>
+                    <label htmlFor=""><h3>Product Name :</h3></label>
                     <input type="text" value={productName} onChange={nameHandler} required />
                 </div>
                 <div>
-                    <label htmlFor="">Choose a category :</label>
+                    <label htmlFor=""><h3>Choose a Category :</h3></label>
                     <select name="" onChange={categoryHandler}>
                         <option value="Food" selected>Food</option>
                         <option value="Gadget">Gadget</option>
